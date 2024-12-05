@@ -80,7 +80,7 @@ struct OpenAPIRequester {
         )
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer \(Key.apiKey)", forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer \(Key.openAiApiKey)", forHTTPHeaderField: "Authorization")
         request.httpBody = try JSONEncoder().encode(
             RequestBody(
                 model: "gpt-3.5-turbo",
@@ -150,10 +150,4 @@ struct WeatherAPIRequester {
         }
         return result.current.weather[0].main
     }
-}
-
-private struct Key {
-    static let openAIKey = "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"
-
-    static let whetherKey = "236d7abc88ccc85da67431dd57114e19"
 }
